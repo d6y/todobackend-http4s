@@ -5,12 +5,13 @@ lazy val root = (project in file(".")).
     name := "todobackend-http4s"
   )
 
-version := "0.1"
-scalaVersion := "2.11.8"
+version := "0.2"
+scalaVersion := "2.12.1"
 
-val http4sVersion = "0.14.1a"
-val circeVersion = "0.4.1"
+val http4sVersion = "0.15.3a"
+val circeVersion = "0.6.1"
 val logbackVersion = "1.1.7"
+val scalatestVersion = "3.0.1" 
 
 libraryDependencies ++= Seq(
   "org.http4s" %% "http4s-dsl" % http4sVersion,
@@ -24,5 +25,5 @@ libraryDependencies ++= Seq(
 
   "ch.qos.logback" % "logback-classic" % logbackVersion,
 
-  "org.scalatest" %% "scalatest" % "2.2.6" % Test
+  "org.scalatest" %% "scalatest" % scalatestVersion % Test
 )

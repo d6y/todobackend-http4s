@@ -1,6 +1,6 @@
 package com.tomwadeson.todobackend.service
 
-import cats.data.Xor
+import scala.util.{Either, Right, Left}
 import com.tomwadeson.todobackend.TodoBackendConfig
 import com.tomwadeson.todobackend.domain.{TodoItem, TodoItemPatchForm, TodoItemPostForm}
 import com.tomwadeson.todobackend.persistence.InMemoryTodoItemRepository
@@ -27,7 +27,7 @@ class TodoServiceSpec extends FlatSpec with Matchers {
     response.status should be(Status.Ok)
 
     todoItems match {
-      case Xor.Right(todoItems) =>
+      case Right(todoItems) =>
         todoItems should be(
             Seq(TodoItem(0, TodoItemPostForm("First, do this")), TodoItem(1, TodoItemPostForm("Then, do that"))))
       case _ => fail()
