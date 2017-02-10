@@ -24,10 +24,11 @@ class InMemoryTodoItemRepository extends TodoItemRepository {
     todoItem
   }
 
-  override def delete(id: Long): Unit =
-    repository.remove(id)
+  override def delete(id: Long): Unit = {
+    val _ = repository.remove(id)
+  }
 
-  override def deleteAll: Unit =
+  override def deleteAll(): Unit =
     synchronized {
       idSequence.set(0)
       repository.clear()
